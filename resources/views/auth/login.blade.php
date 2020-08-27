@@ -62,6 +62,12 @@
                                         {{ __('Forgot Your Password?') }}
                                     </a>
                                 @endif
+                                <a class="btn btn-link" href="{{ route('social.login', 'facebook') }}">
+                                        {{ __('Login with Facebook') }}
+                                </a>
+                                <a class="btn btn-link" href="{{ route('social.login', 'github') }}">
+                                        {{ __('Login with Github') }}
+                                </a>
                             </div>
                         </div>
                     </form>

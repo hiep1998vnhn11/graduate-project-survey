@@ -21,8 +21,15 @@ Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
 
-Route::get('/auth/redirect/{provider}', 'SocialController@redirect');
-Route::get('/callback/{provider}', 'SocialController@callback');
+Route::get('/login/{provider}/redirect', 'SocialiteController@redirect')->name('social.login');
+Route::get('/auth/{provider}/callback', 'SocialiteController@callback');
 
-Route::get('login/github', 'GithubController@redirectLogin');
-Route::get('auth/callback', 'GithubController@handleCallback');
+
+Route::post('/graduate/create', 'GraduateController@create')->middleware('auth')->name('create_graduate');
+
+Route::group([ // Admin Route use middleware admin
+    'middleware' => 'admin',
+    'prefix' => 'admin'
+], function(){
+    
+});
