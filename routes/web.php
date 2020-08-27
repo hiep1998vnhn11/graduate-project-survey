@@ -33,3 +33,5 @@ Route::group([ // Admin Route use middleware admin
 ], function(){
     
 });
+
+Route::get('lang/{lang}', ['as'=>'lang.switch', 'uses'=>'LanguageController@switchLang']);
